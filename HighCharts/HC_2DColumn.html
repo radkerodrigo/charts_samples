@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>Highcharts Simple 2D Column</title>
+   </head>
+   <body>
+      <h1>Highcharts Simple 2D Column</h1>
+      <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+      <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+      <script type="text/javascript" src="http://code.highcharts.com/modules/exporting.js"></script>   
+      <script type="text/javascript">
+         $(function () {
+             Highcharts.chart('container', {
+         
+              chart: {
+                  type: 'column'
+              },
+         
+              title: {
+                  text: 'Monthly revenue for last year'
+              },
+              
+              subtitle: {
+                text: "Harry's SuperMart",
+                x: -20
+              },
+              
+              xAxis: {
+                  title: {
+                    text: 'Month'
+                  },
+                  categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+              },
+         
+              yAxis: {
+                  min: 0,
+                  gridLineDashStyle: 'longdash',
+                  labels: {
+                      format: '${value}'
+                  },
+                  title: {
+                      text: 'Revenues (In USD)'
+                  }
+              },
+         
+              tooltip: {
+                  formatter: function () {
+                      return '<b>' + this.x + '</b><br/>' +
+                          this.series.name + ': $' + this.y
+                  }
+              },
+              
+              plotOptions: {
+                  series: {
+                      colorByPoint: false,
+                      dataLabels: {
+                        enabled: true,
+                        inside: true,
+                        rotation: 270,
+                        format: '${y}',
+                        color: 'white'
+                      }
+                  }
+              },
+         
+              series: [{
+                  data: [420000, 810000, 720000, 550000, 910000, 510000, 680000, 620000, 610000, 490000, 900000, 730000]
+              }]
+          });
+         });    
+      </script>
+   </body>
+</html>
