@@ -15,14 +15,7 @@
              Highcharts.chart('container', {
          
               chart: {
-                  type: 'column',
-                  events: {
-                    render: function() {
-                      setTimeout(function() {
-                        $("body").append("<div id='chartRendered'></div>");
-                      }, 0);
-                    }
-                  }
+                  type: 'column'
               },
          
               title: {
@@ -62,13 +55,19 @@
               plotOptions: {
                   series: {
                       colorByPoint: false,
+                      animation: false,
                       dataLabels: {
                         enabled: true,
                         inside: true,
                         rotation: 270,
                         format: '${y}',
                         color: 'white'
-                      }
+                      },
+                      events: {
+                        afterAnimate: function () {
+                          $("body").append("<div id='chartRendered'></div>");                     
+                        }
+                    }
                   }
               },
          
