@@ -17,8 +17,10 @@
               chart: {
                   type: 'column',
                   events: {
-                    load: function(event) {
-                      $("body").append("<div id='chartRendered'></div>");
+                    render: function() {
+                      setTimeout(function() {
+                        $("body").append("<div id='chartRendered'></div>");
+                      }, 0);
                     }
                   }
               },
