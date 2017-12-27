@@ -1,9 +1,14 @@
 <html>
    <head>
       <title>FusionCharts Simple 2D Column</title>
+      <script type="text/javascript" src="../jquery.min.js"></script>
       <script src="./fusioncharts.js"></script>
       <script src="./fusioncharts.charts.js"></script>
-      <script type="text/javascript">
+      <script id="chartFunction" type="text/javascript">
+         FusionCharts.addEventListener("renderComplete", function() {
+            $("body").append("<div id='chartRendered'></div>");
+         });
+
          FusionCharts.ready(function(){
          	var salesAnlysisChart = new FusionCharts({
          		type: 'column2d',
