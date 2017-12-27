@@ -6,12 +6,12 @@
    </head>
    <body>
       <h1>Highcharts Simple 2D Column</h1>
-      <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+      <div id="chartContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
       <script type="text/javascript" src="../jquery.min.js"></script>
       <script type="text/javascript" src="./highcharts.js"></script>
       <script id="chartFunction" type="text/javascript">
          $(function () {
-             Highcharts.chart('container', {
+             Highcharts.chart('chartContainer', {
          
               chart: {
                   type: 'column'
@@ -64,7 +64,7 @@
                       },
                       events: {
                         afterAnimate: function () {
-                          $("body").append("<div id='chartRendered'></div>");                     
+                          $("body").append("<div id='chartRendered'></div>");
                         }
                     }
                   }
